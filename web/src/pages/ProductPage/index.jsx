@@ -9,6 +9,21 @@ import Wrapper from '../../styles/wrapper';
 function ProductPage() {
   const { list, setList } = useList();
 
+  function handleAddList({ name, price, image }) {
+    const productExists = list.find((product) => product.name === name);
+
+    if (productExists) return;
+
+    setList([
+      ...list,
+      {
+        name,
+        image,
+        price,
+      },
+    ]);
+  }
+
   return (
     <Wrapper>
       <Container>
@@ -36,13 +51,12 @@ function ProductPage() {
             </button>
             <button
               onClick={() =>
-                setList([
-                  ...list,
-                  {
-                    name: 'Apple Mackbook Pro',
-                    price: '$499',
-                  },
-                ])
+                handleAddList({
+                  name: 'Apple Mackbook Pro',
+                  price: '$499',
+                  image:
+                    'https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2019/11/macbookpro-16-2.jpg',
+                })
               }
             >
               <AiOutlineHeart size={18} />

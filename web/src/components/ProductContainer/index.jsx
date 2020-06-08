@@ -11,17 +11,16 @@ function ProductContainer() {
 
   const history = useHistory();
 
-  function handleAddList({ name, price }) {
+  function handleAddList({ name, price, image }) {
     const productExists = list.find((product) => product.name === name);
 
-    if (productExists) {
-      return;
-    }
+    if (productExists) return;
 
     setList([
       ...list,
       {
         name,
+        image,
         price,
       },
     ]);
@@ -42,6 +41,8 @@ function ProductContainer() {
             onClick={() =>
               handleAddList({
                 name: 'Apple Mackbook Pro',
+                image:
+                  'https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2019/11/macbookpro-16-2.jpg',
                 price: '$499',
               })
             }
