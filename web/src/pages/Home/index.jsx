@@ -28,7 +28,7 @@ function Home() {
             id={product.id}
             name={product.name}
             image={product.image_url}
-            price={product.price}
+            price={`$${product.price}`}
           />
         ))}
       </Container>

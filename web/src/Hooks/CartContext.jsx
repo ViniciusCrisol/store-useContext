@@ -18,5 +18,9 @@ export function useCart() {
 
   const cartSize = cart.length;
 
-  return { cart, setCart, cartSize };
+  let value = 0;
+
+  cart.map((item) => (value += item.price * item.quantity));
+
+  return { cart, setCart, cartSize, value };
 }

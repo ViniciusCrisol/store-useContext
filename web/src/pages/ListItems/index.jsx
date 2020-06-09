@@ -12,8 +12,8 @@ function ListItems() {
   const { list, setList, listSize } = useList();
   const history = useHistory();
 
-  function removeList(name) {
-    const removeProduct = list.find((product) => product.name === name);
+  function removeList(id) {
+    const removeProduct = list.find((product) => product.id === id);
 
     const newList = list.filter((item) => item !== removeProduct);
 
@@ -25,18 +25,20 @@ function ListItems() {
       <Container>
         {listSize > 0 ? (
           <>
-            {list.map((item) => (
-              <ProdcuctContainer key={item.name}>
-                <img src={item.image} alt={item.name} />
+            {list.map((product) => (
+              <ProdcuctContainer key={product.name}>
+                <img src={product.image} alt={product.name} />
                 <section>
-                  <h2>{item.name}</h2>
-                  <p>{item.price}</p>
+                  <h2>{product.name}</h2>
+                  <p>$ {product.price}</p>
                 </section>
                 <footer>
-                  <button onClick={() => removeList(item.name)}>
+                  <button onClick={() => removeList(product.id)}>
                     <IoMdHeartDislike size={20} color=' #33a0ff' />
                   </button>
-                  <button onClick={() => history.push(`/product/${item.id}`)}>
+                  <button
+                    onClick={() => history.push(`/product/${product.id}`)}
+                  >
                     <AiOutlineShoppingCart size={20} color=' #33a0ff' />
                   </button>
                 </footer>

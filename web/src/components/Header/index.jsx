@@ -4,11 +4,13 @@ import { FiShoppingBag } from 'react-icons/fi';
 import { AiOutlineShop, AiOutlineHeart } from 'react-icons/ai';
 
 import { useList } from '../../Hooks/ListContext';
+import { useCart } from '../../Hooks/CartContext';
 
 import { Container } from './styles';
 
 function Header() {
   const { listSize } = useList();
+  const { cartSize } = useCart();
 
   return (
     <Container>
@@ -25,7 +27,7 @@ function Header() {
           </Link>
           <Link to='/cart'>
             <FiShoppingBag size={22} />
-            <p>0 Items</p>
+            <p>{cartSize} Items</p>
           </Link>
         </div>
       </main>
