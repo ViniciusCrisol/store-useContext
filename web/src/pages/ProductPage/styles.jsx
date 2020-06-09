@@ -1,12 +1,8 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
-  margin-top: 90px;
-
   display: flex;
-
-  height: 370px;
+  align-items: center;
 
   main {
     img {
@@ -40,7 +36,6 @@ export const Container = styled.div`
 
     section {
       display: flex;
-      justify-content: space-between;
 
       button {
         height: 40px;
@@ -61,6 +56,7 @@ export const Container = styled.div`
         transition: 200ms ease;
 
         &:first-child {
+          margin-right: 15px;
           svg {
             margin-right: 15px;
           }

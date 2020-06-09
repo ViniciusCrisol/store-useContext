@@ -1,11 +1,24 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const LoadFail = styled.div`
+  margin-top: 124px;
+
+  h1 {
+    color: #ccc;
+  }
+`;
 
 export const ProdcuctContainer = styled.div`
   width: 220px;
-  height: 240px;
+  height: 320px;
 
+  margin: 10px;
   padding: 5px;
 
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;

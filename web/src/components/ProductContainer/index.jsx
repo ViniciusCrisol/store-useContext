@@ -6,12 +6,12 @@ import { Container } from './styles';
 
 import { useList } from '../../Hooks/ListContext';
 
-function ProductContainer() {
+function ProductContainer({ id, name, price, image }) {
   const { list, setList } = useList();
 
   const history = useHistory();
 
-  function handleAddList({ name, price, image }) {
+  function handleAddList({ id, name, price, image }) {
     const productExists = list.find((product) => product.name === name);
 
     if (productExists) return;
@@ -19,6 +19,7 @@ function ProductContainer() {
     setList([
       ...list,
       {
+        id,
         name,
         image,
         price,
@@ -28,32 +29,20 @@ function ProductContainer() {
 
   return (
     <Container>
-      <img
-        src='https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2019/11/macbookpro-16-2.jpg'
-        alt='Product'
-      />
+      <img src={image} alt={name} />
 
-      <main>
-        <h4>Apple Mackbook Pro</h4>
-        <p>$499</p>
-        <div>
-          <button
-            onClick={() =>
-              handleAddList({
-                name: 'Apple Mackbook Pro',
-                image:
-                  'https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2019/11/macbookpro-16-2.jpg',
-                price: '$499',
-              })
-            }
-          >
-            <AiOutlineHeart size={18} color='white' />
-          </button>
-          <button onClick={() => history.push('/product/1')}>
-            <AiOutlineShoppingCart size={18} color='white' />
-          </button>
-        </div>
-      </main>
+      <section>
+        <h2>{name}</h2>
+        <p>{price}</p>
+      </section>
+      <footer>
+        <button onClick={() => handleAddList({ name, image, price, id })}>
+          <AiOutlineHeart size={18} color='white' />
+        </button>
+        <button onClick={() => history.push(`/product/${id}`)}>
+          <AiOutlineShoppingCart size={18} color='white' />
+        </button>
+      </footer>
     </Container>
   );
 }

@@ -2,81 +2,71 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  position: relative;
+  width: 220px;
+  height: 320px;
 
-  min-width: 360px;
-  width: fit-content;
-  height: 160px;
+  margin: 10px;
 
-  padding: 15px 45px 15px 0px;
+  padding: 5px;
+
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 
   img {
-    height: 100%;
+    width: 100%;
   }
 
-  main {
-    height: 60%;
+  section {
+    flex: 1;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
 
-    margin-left: 40px;
+    h2 {
+      width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    h4 {
       font-size: 14px;
-      font-weight: bold;
-      line-height: 1;
 
-      height: 28px;
-
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    span {
-      display: flex;
-      align-items: flex-end;
-
-      svg {
-        margin-left: 5px;
-      }
+      padding-top: 10px;
+      margin-top: 10px;
+      border-top: 1px solid #eee;
     }
 
     p {
       color: #888;
       font-size: 16px;
     }
+  }
 
-    div {
+  footer {
+    width: 100%;
+
+    padding: 0 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      width: 95px;
+      height: 30px;
+
+      background-color: #33a0ff;
+      border-radius: 4px;
+      border: 0;
+
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
 
-      button {
-        background-color: #33a0ff;
-        border: 0;
+      transition: 200ms;
 
-        width: 62px;
-        height: 26px;
-
-        transition: 200ms;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        & + button {
-          margin-left: 0px;
-        }
-
-        &:hover {
-          background-color: ${darken(0.06, '#33a0ff')};
-        }
+      &:hover {
+        background-color: ${darken(0.08, '#33a0ff')};
       }
     }
   }
