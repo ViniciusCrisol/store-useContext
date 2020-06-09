@@ -17,4 +17,6 @@ routes.post(
 
 routes.get('/products', productController.index);
 
+routes.get('/products/:id', productController.show);
+
 export default routes;

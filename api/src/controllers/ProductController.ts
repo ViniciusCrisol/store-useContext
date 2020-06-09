@@ -14,6 +14,24 @@ class PointsController {
 
     return response.json(serializedProducts);
   }
+
+  async show(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const product = await knex('products').where('id', id).first();
+
+    if (!product) {
+      return response.status(400).json({ error: 'Ponto não encontrado' });
+    }
+
+    const serializedProducts = {
+      ...product,
+      image_url: `http://192.168.100.6:3333/uploads/${product.image}`,
+    };
+
+    return response.json(serializedProducts);
+  }
+
   async create(request: Request, response: Response) {
     const { name, price, category, availability } = request.body;
 
