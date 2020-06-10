@@ -13,7 +13,7 @@ foi a aplicação de useContext ao invés do Redux.
 ### Web
 
 - React
-- useContext
+- Hooks
 
 ### API
 
