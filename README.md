@@ -23,7 +23,7 @@ foi a aplicação de useContext ao invés do Redux.
 #
 
 
-![](https://i.ibb.co/7nPWwvd/ezgif-6-6ee26606e647.gif)
+![](https://i.ibb.co/5GDJKWX/screencast-localhost-3000-2020.gif)
 
 
 #
