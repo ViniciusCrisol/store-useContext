@@ -19,23 +19,34 @@ function Cart() {
 
   function oneLess(id) {
     const editProduct = cart.find((product) => product.id === id);
+    const findIndexCart = cart.findIndex((item) => item.id === id);
+
     if (editProduct.quantity === 1) return;
 
-    const list = cart.filter((item) => item !== editProduct);
-
     editProduct.quantity--;
+    const auxArray = cart.map((cartIterator, index) => {
+      if(index === findIndexCart){
+        return editProduct;
+      }
+      return cartIterator;
+    });
+    setCart(auxArray);
 
-    setCart([...list, editProduct]);
   }
 
   function oneMore(id) {
     const editProduct = cart.find((product) => product.id === id);
-
-    const list = cart.filter((item) => item !== editProduct);
+    const findIndexCart = cart.findIndex((item) => item.id === id);
 
     editProduct.quantity++;
+    const auxArray = cart.map((cartIterator, index) => {
+      if(index === findIndexCart){
+        return editProduct;
+      }
+      return cartIterator;
+    });
 
-    setCart([...list, editProduct]);
+    setCart(auxArray);
   }
 
   return (
